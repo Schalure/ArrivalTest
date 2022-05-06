@@ -149,31 +149,41 @@ u32 sendPacket(u8 *data, u16 len, u16 counter);
 u32 breakRecieve();
 
 //------------------------------------------------------------------------------
+//	Чтение и обработка ошибок UART
 u32 USART1_Read()
 {
 	while(1)
 	{
-		//	check to ovr
+		//	Проверяем, есть-ли ошибка переполнения
 		if(USART1->SR && USART_SR_ORE)
 		{
+			//	если ошибка есть, чистим регистр данных
 			while(USART1->SR && USART_SR_ORE)
 				USART1->DR;
+			//	отрабатываем ошибку (сбрасываем все счетчики и ожидания)
 			PacketParser(0,USART_SR_ORE);
+			//	включаем прерывания и выходим
+			USART1->CR1 |= USART_CR1_RXNEIE;
 			return 0;
 		}
-		//	if RDR not empty, go to execution
+		//	Если в регистре данных что-то есть идем в обрабатывать
 		else if(USART1->SR && USART_SR_RXNE)
 			PacketParser(USART1->DR);
-		//	if RDR is empty, enabled interrupt and wait next byte
+		//	Когда все прочитали, включаем прерывания и выходим
 		else
-			USART1->CR1 &= USART_CR1_RXNEIE;
+			USART1->CR1 |= USART_CR1_RXNEIE;
 		return 0;
 	}
 }
 //------------------------------------------------------------------------------
+//	Функция отрабатывает по тайм-ауту и прекращает прием, если получили не полный пакет
+//	или в процессе передача просто остановилась. Отрабатывает через 10 мсек после приема преамбулы
+//	10 мсек: 460800 = ~55 байт в мсек, при условии, что максимум 256 байт - двойной запас по времени
 u32 breakRecieve()
 {
+	//	отрабатываем ошибку таймаута, включаем прерывания и выходим
 	PacketParser(0, TIMEOUT_ERR);
+	USART1->CR1 |= USART_CR1_RXNEIE;
 	return 0;
 }
 
@@ -184,42 +194,65 @@ void PacketParser(u8 byte, u8 error)
 	static u16 byteCounter = 0;
 	static u8* packet = 0;
 	
-	//	execution ovr or timeout error
+	//	Отработка ошибок
 	if((error == USART_SR_ORE) || (error == TIMEOUT_ERR))
 	{
+		//	говорим, что мы больше не в приеме
 		isInRxProcess = _FALSE_;
+		//	чистим счетчик
 		byteCounter = 0;
+		//	удалием пакет
 		delete[] packet;
 		return;
 	}
 
-	//	search preamble
+	//	1. Ищим преамбулу (условие: мы не в процессе приема и байт = FF)
 	if(!isInRxProcess && byte == _PACKET_PREAMBLE_)
 	{
+		//	установим флаг, что задача в процессе приема
 		isInRxProcess = _TRUE_;
+		//	выделить память под пакет максимальной длины
 		packet = new u8[sizeof(TPacket)];
+		//	укладываем преамбулу в буффер со смещением индекса
 		packet[byteCounter++] = _PACKET_PREAMBLE_;
-		//	timeout for abort recieve
+		//	устанавливаем таймаут, если процесс передачи неожиданно прекратиться
 		System::set_time_out(10 msec, (pulfv) breakRecieve);
 	}
-	//	read bytes
+	//	2. Уже в процессе приема
 	else
 	{
+		//	записываем байт в буффер
 		packet[byteCounter++] = byte;
-		//	check lenght
+		//	Проверяем на длину:
+		//	условия: количество принятых байт больше длины заголовка и количество принятых байт равно заявленой длине плюс CRC
+		//	больше чем FF быть не может, так что на длине 0x100 точно сюда войдем
 		if((byteCounter > _TPacket_HEADER_LEN_) && (byteCounter == (((TPacket*)packet)->length + 1)))
 		{
+			//	проверям CRC
 			if(packet[byteCounter - 1] == calcCRC(packet, ((TPacket*)packet)->length + _TPacket_HEADER_LEN_, _CRC_POL_))
 			{
-				//	update crc
-				((TPacket*)packet)->length += 0x80;
+				//	если все ок, обновляем и отправляем обратно с новым подсчетом CRC
+				//	тут действительно была опечатка, конечно должен быть тип
+				((TPacket*)packet)->type += 0x80;
 				packet[byteCounter - 1] = calcCRC(packet, ((TPacket*)packet)->length + _TPacket_HEADER_LEN_, _CRC_POL_);
-				//	send
+				//	Ставим в очередь на отправку
 				System::push_queue((pulf3ul)sendPacket, (u32)packet, ((TPacket*)packet)->length + 1 + _TPacket_HEADER_LEN_, 0);	
-				//	reset states for new recieve
+				//	Сбрасываем таймаут проверки
 				System::clr_time_out((pulf3ul)breakRecieve);
+				//	
 				isInRxProcess = _FALSE_;
 				byteCounter = 0;
+			}
+			//	тут действительно забыл обработать ошибку целосности
+			else
+			{
+				//	говорим, что мы больше не в приеме
+				isInRxProcess = _FALSE_;
+				//	чистим счетчик
+				byteCounter = 0;
+				//	удалием пакет
+				delete[] packet;
+				return;				
 			}
 		}
 	}
@@ -276,7 +309,9 @@ u8 calcCRC(u8 *data, u16 len, u8 polinom)
 //------------------------------------------------------------------------------
 extern "C" void USART1_IRQHandler(void)
 {
-	USART1->CR1 &= USART_CR1_RXNEIE;
+	//	Отключаем прерывания по UART
+	USART1->CR1 &= ~USART_CR1_RXNEIE;
+	//	Ставим в очередь функцию чтения данных из UART и выходим из прерывания
 	System::push_queue((pulfv)USART1_Read);
 }
 
