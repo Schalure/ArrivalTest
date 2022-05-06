@@ -263,29 +263,32 @@ u32 sendPacket(u8 *data, u16 len, u16 counter = 0)
 {
 	static u8 isBusy = _FALSE_;
 	
-	//	if a new packet, when old sending
+	//	Начинае передачу пакета
+	//	1. Если задача в процессе передачи, а пришел новый пакет, попробуем отправить его через 1 мсек
 	if(isBusy && (counter == 0))
 	{
 		System::set_time_out(1 msec, (pulf3ul)sendPacket,(u32)data, (u32)len, 0);
 		return 0;
 	}
-	//	it's new packet
+	//	Если процесс свободен, занять и начать передавать
 	else
 		isBusy = _TRUE_;
 	
-	//	tx
+	//	проверка на освобождение регистра передачи
 	if(USART1->SR & USART_SR_TXE)
 	{
+		//	отправка с увеличением счетчика
 		USART1->DR = data[counter++];
-		//	if all data transferred
+		//	если все передали, освобождаем задачу и освобождаем память b ds[jlbv
 		if(counter == len)
 		{
 			isBusy = _FALSE_;
 			delete[] data;
+			return 0;
 		}
-		else
-			System::push_queue((pulf3ul)sendPacket, (u32)data, len, counter);
 	}
+	//	тут в прошлый раз не возобновлялась передача
+	System::push_queue((pulf3ul)sendPacket, (u32)data, len, counter);
 	return 0;
 }
 
