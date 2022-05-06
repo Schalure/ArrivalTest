@@ -99835,7 +99835,7 @@
     "display": "u8 calcCRC(u8 *, u16, u8)",
     "location": {
       "column": "4",
-      "line": "293",
+      "line": "296",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "calcCRC",
@@ -99843,13 +99843,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@10454@F@calcCRC#*c#s#c#@crc",
+    "ID": "c:main.cpp@11046@F@calcCRC#*c#s#c#@crc",
     "What": "Variable",
     "defdec": "Def",
     "display": "crc",
     "location": {
       "column": "8",
-      "line": "295",
+      "line": "298",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "crc",
@@ -99857,13 +99857,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@10474@F@calcCRC#*c#s#c#@i",
+    "ID": "c:main.cpp@11066@F@calcCRC#*c#s#c#@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "9",
-      "line": "296",
+      "line": "299",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "i",
@@ -99871,13 +99871,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@10474@F@calcCRC#*c#s#c#@j",
+    "ID": "c:main.cpp@11066@F@calcCRC#*c#s#c#@j",
     "What": "Variable",
     "defdec": "Dec",
     "display": "j",
     "location": {
       "column": "12",
-      "line": "296",
+      "line": "299",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "j",
@@ -99891,7 +99891,7 @@
     "display": "void USART1_IRQHandler(void)",
     "location": {
       "column": "17",
-      "line": "310",
+      "line": "313",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "USART1_IRQHandler",
@@ -99899,13 +99899,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@11343@macro@UPDATE_CC1",
+    "ID": "c:main.cpp@11935@macro@UPDATE_CC1",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UPDATE_CC1",
     "location": {
       "column": "9",
-      "line": "322",
+      "line": "325",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "UPDATE_CC1",
@@ -99913,13 +99913,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@11380@macro@UPDATE_CC2",
+    "ID": "c:main.cpp@11972@macro@UPDATE_CC2",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UPDATE_CC2",
     "location": {
       "column": "9",
-      "line": "323",
+      "line": "326",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "UPDATE_CC2",
@@ -99927,13 +99927,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@11420@macro@UPDATE_CC3",
+    "ID": "c:main.cpp@12012@macro@UPDATE_CC3",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UPDATE_CC3",
     "location": {
       "column": "9",
-      "line": "324",
+      "line": "327",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "UPDATE_CC3",
@@ -99947,7 +99947,7 @@
     "display": "TPort",
     "location": {
       "column": "8",
-      "line": "326",
+      "line": "329",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "members": [
@@ -99958,7 +99958,7 @@
         "display": "b0",
         "location": {
           "column": "5",
-          "line": "328",
+          "line": "331",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b0",
@@ -99972,7 +99972,7 @@
         "display": "b1",
         "location": {
           "column": "5",
-          "line": "329",
+          "line": "332",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b1",
@@ -99986,7 +99986,7 @@
         "display": "b2",
         "location": {
           "column": "5",
-          "line": "330",
+          "line": "333",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b2",
@@ -100000,7 +100000,7 @@
         "display": "b3",
         "location": {
           "column": "5",
-          "line": "331",
+          "line": "334",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b3",
@@ -100014,7 +100014,7 @@
         "display": "b4",
         "location": {
           "column": "5",
-          "line": "332",
+          "line": "335",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b4",
@@ -100028,7 +100028,7 @@
         "display": "b5",
         "location": {
           "column": "5",
-          "line": "333",
+          "line": "336",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b5",
@@ -100042,7 +100042,7 @@
         "display": "b6",
         "location": {
           "column": "5",
-          "line": "334",
+          "line": "337",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b6",
@@ -100056,7 +100056,7 @@
         "display": "b7",
         "location": {
           "column": "5",
-          "line": "335",
+          "line": "338",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b7",
@@ -100070,7 +100070,7 @@
         "display": "b8",
         "location": {
           "column": "5",
-          "line": "336",
+          "line": "339",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b8",
@@ -100084,7 +100084,7 @@
         "display": "b9",
         "location": {
           "column": "5",
-          "line": "337",
+          "line": "340",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b9",
@@ -100098,7 +100098,7 @@
         "display": "b10",
         "location": {
           "column": "5",
-          "line": "338",
+          "line": "341",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b10",
@@ -100112,7 +100112,7 @@
         "display": "b11",
         "location": {
           "column": "5",
-          "line": "339",
+          "line": "342",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b11",
@@ -100126,7 +100126,7 @@
         "display": "b12",
         "location": {
           "column": "5",
-          "line": "340",
+          "line": "343",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b12",
@@ -100140,7 +100140,7 @@
         "display": "b13",
         "location": {
           "column": "5",
-          "line": "341",
+          "line": "344",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b13",
@@ -100154,7 +100154,7 @@
         "display": "b14",
         "location": {
           "column": "5",
-          "line": "342",
+          "line": "345",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b14",
@@ -100168,7 +100168,7 @@
         "display": "b15",
         "location": {
           "column": "5",
-          "line": "343",
+          "line": "346",
           "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
         },
         "name": "b15",
@@ -100187,7 +100187,7 @@
     "display": "PortB",
     "location": {
       "column": "24",
-      "line": "346",
+      "line": "349",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "PortB",
@@ -100201,7 +100201,7 @@
     "display": "void TIM2_IRQHandler(void)",
     "location": {
       "column": "17",
-      "line": "348",
+      "line": "351",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "TIM2_IRQHandler",
@@ -100209,13 +100209,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@11785@F@TIM2_IRQHandler@statusReg",
+    "ID": "c:main.cpp@12377@F@TIM2_IRQHandler@statusReg",
     "What": "Variable",
     "defdec": "Def",
     "display": "statusReg",
     "location": {
       "column": "6",
-      "line": "350",
+      "line": "353",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "statusReg",
@@ -100223,13 +100223,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@12630@macro@NUM_SAMPLES",
+    "ID": "c:main.cpp@13222@macro@NUM_SAMPLES",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "NUM_SAMPLES",
     "location": {
       "column": "10",
-      "line": "393",
+      "line": "396",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "NUM_SAMPLES",
@@ -100243,7 +100243,7 @@
     "display": "u32 average(u32)",
     "location": {
       "column": "5",
-      "line": "394",
+      "line": "397",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "average",
@@ -100251,13 +100251,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@12673@F@average#i#@res",
+    "ID": "c:main.cpp@13265@F@average#i#@res",
     "What": "Variable",
     "defdec": "Def",
     "display": "res",
     "location": {
       "column": "6",
-      "line": "396",
+      "line": "399",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "res",
@@ -100271,7 +100271,7 @@
     "display": "void ADC1_2_IRQHandler(void)",
     "location": {
       "column": "17",
-      "line": "399",
+      "line": "402",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "ADC1_2_IRQHandler",
@@ -100279,13 +100279,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@12763@F@ADC1_2_IRQHandler@sum",
+    "ID": "c:main.cpp@13355@F@ADC1_2_IRQHandler@sum",
     "What": "Variable",
     "defdec": "Def",
     "display": "sum",
     "location": {
       "column": "13",
-      "line": "401",
+      "line": "404",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "sum",
@@ -100293,13 +100293,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.cpp@12763@F@ADC1_2_IRQHandler@counter",
+    "ID": "c:main.cpp@13355@F@ADC1_2_IRQHandler@counter",
     "What": "Variable",
     "defdec": "Dec",
     "display": "counter",
     "location": {
       "column": "22",
-      "line": "401",
+      "line": "404",
       "path": "D:\\001_Work\\001_Project\\Test_projects_C++\\ArrivalTest\\Include\\main.cpp"
     },
     "name": "counter",
